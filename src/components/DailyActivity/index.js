@@ -75,8 +75,9 @@ const activitiesArray = data.data.sessions.map(activity=> {
     getData();
   });
 
-  return (<div> 
-    <div className="titleDailyActivity">Activité quotidienne</div>
+  return (<div className="containerDailyActivity"> 
+  <div className="containerTitleDailyActivity">
+    <div className="titleDailyActivity">Activité quotidienne</div></div>
     <BarChart
       width={800}
       height={300}
