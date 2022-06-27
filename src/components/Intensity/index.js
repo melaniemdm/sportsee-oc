@@ -62,15 +62,15 @@ useEffect(() => {
 
   return (
     <RadarChart
-    outerRadius={89}
-      cx={130}
+    outerRadius={75}
+      cx={125}
       cy={130}
            width={300}
       height={250}
       data={performances}
     >
       <PolarGrid />
-      <PolarAngleAxis dataKey="subject" />
+      <PolarAngleAxis dataKey="subject" stroke="white" tick={{fontSize: 12}}/>
       
       <Radar
         name="Mike"
