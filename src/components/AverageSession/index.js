@@ -49,15 +49,15 @@ useEffect(() => {
       width={263}
       height={258}
       data={averageSessions}
-      
+      // margin={{ top: 50, right: 0, left: 0, bottom: 0 }}
     >
       
       <XAxis dataKey="name" stroke="white" />
-      
+     
       <Tooltip />
      
       
-      <Line type="monotone" dataKey="pv" stroke="white" />
+      <Line type="monotone" dataKey="pv" name="min"   stroke="black" />
     </LineChart></div>
   );
 }
