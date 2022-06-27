@@ -51,13 +51,14 @@
   justify-content:space-between;
  margin-left: 24px;
 }
-@media #{$medium-down} {
+@media #{$large-down} {
   .containerProfil {
   margin-left: 145px;
   }
   .containerBodyMass{
-    outline: 2px solid green;
-  
+    margin-top: 30px;
+  //  outline: 2px solid yellow;
+    flex-direction: row;
     margin-left:0;
   }
 }

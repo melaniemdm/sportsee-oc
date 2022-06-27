@@ -2,7 +2,6 @@
 .layoutcardBodyMass{
     //outline:2px solid green;
     display: flex;
-
     align-items: center;
     width:258px;
     height:124px;
@@ -20,3 +19,10 @@
 margin-left: 32px;
 margin-right:24px;
 }
+@media #{$large-down} {
+    .layoutcardBodyMass{
+        margin-right: 3px;
+        width:207px;
+        height:108px;
+    }
+    }
