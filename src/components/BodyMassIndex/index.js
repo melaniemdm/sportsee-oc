@@ -17,7 +17,8 @@ function BodyMassIndex(props){
 const typeMass = props.data.type === "Calories"? "kCal" :" g";
     
     return (
-        <div className="bodyMassIndex">
+        <div className="containerBodyMassIndex">
+            <div className="layoutcardBodyMass">
             <div className="containerIconeBodyMass">
                <div className="containerIconeBodyMass"> <img src={props.data.picture} className="iconeBodyMass" alt="icone "/></div> 
                 </div> 
@@ -27,7 +28,7 @@ const typeMass = props.data.type === "Calories"? "kCal" :" g";
              
 
                
-            </div>
+            </div></div>
         </div>
     )
 }

@@ -1,1 +1,21 @@
 @import "../../styles/commun.scss";
+.layoutcardBodyMass{
+    //outline:2px solid green;
+    display: flex;
+    align-items: center;
+    width:258px;
+    height:124px;
+    background: #FBFBFB;
+    border-radius: 5px;
+
+}
+.bodyMass{
+    font-size:20px;
+}
+.typeBodyMass{
+    font-size:14px;
+}
+.iconeBodyMass{
+margin-left: 32px;
+margin-right:24px;
+}
