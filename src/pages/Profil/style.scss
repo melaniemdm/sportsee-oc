@@ -46,10 +46,16 @@
 }
 .containerBodyMass{
   outline: 2px solid green;
-  margin-left:24px;
+ margin-left: 24px;
 }
 @media #{$medium-down} {
   .containerProfil {
   margin-left: 145px;
+  }
+  .containerBodyMass{
+    outline: 2px solid green;
+   display:flex;
+    justify-content:space-between;
+    margin-left:0;
   }
 }
