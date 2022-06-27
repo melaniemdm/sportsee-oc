@@ -1,5 +1,10 @@
 @import "../../styles/commun.scss";
 
+.containerGraphUser{
+  display:flex;
+  flex-wrap: wrap;
+  }
+
 .containerProfil {
   //  outline: 1px solid green;
   position: absolute;
@@ -39,7 +44,9 @@
 .score{
   background-color: #FBFBFB;
 }
-
+.containerBodyMass{
+  outline: 2px solid green;
+}
 @media #{$medium-down} {
   .containerProfil {
   margin-left: 145px;
