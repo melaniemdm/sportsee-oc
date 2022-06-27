@@ -96,7 +96,7 @@ const activitiesArray = data.data.sessions.map(activity=> {
       <YAxis yAxisId="right" orientation="right" stroke="gray" />
       <Tooltip />
       <Legend verticalAlign="top" height={36} align="right" iconType="cercle"/>
-      <Bar yAxisId="left" dataKey="calories" fill="black" barSize={7} shape={({ x, y, width, height, value, background }) => {
+      <Bar yAxisId="left" name = "Poids (kg)" dataKey="calories" fill="black" barSize={7} shape={({ x, y, width, height, value, background }) => {
         const Bar = getBarShape(x, y, width, height, [4, 4, 0, 0]);
         return (
           <g>
@@ -112,7 +112,7 @@ const activitiesArray = data.data.sessions.map(activity=> {
           </g>
         );
       }}/>
-      <Bar yAxisId="right" dataKey="kilogram" fill="red" barSize={7} shape={({ x, y, width, height, value, background }) => {
+      <Bar yAxisId="right" name = "Calories brûlées (kCal)" dataKey="kilogram" fill="red" barSize={7} shape={({ x, y, width, height, value, background }) => {
         const Bar = getBarShape(x, y, width, height, [4, 4, 0, 0]);
         return (
           <g>
