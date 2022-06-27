@@ -1,1 +1,21 @@
 @import "../../styles/commun.scss";
+.containerProfil {
+  //  outline: 1px solid green;
+  position: absolute;
+  margin-left: 225px;
+  top: 159px;
+}
+
+.titleProfil {
+  // outline: 1px solid rgb(167, 167, 21);
+  font-size: 48px;
+  font-weight: 500;
+  display: flex;
+}
+.nameProfil {
+  color: red;
+}
+.txtProfil{
+    margin-top:41px;
+    margin-bottom:77px;
+}
