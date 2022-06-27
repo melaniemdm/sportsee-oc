@@ -1,0 +1,11 @@
+$small: 767px !default; /*vue mobile*/
+$medium: 1024px !default; /*vue tablette*/
+$large: 1365px !default; /*vue desktop*/
+
+
+$small-up: "only screen and (min-width: #{$small})";
+$small-down: "only screen and (max-width: #{$small})";
+$medium-up: "only screen and (min-width: #{$medium})";
+$medium-down: "only screen and (max-width: #{$medium})";
+$large-up: "only screen and (min-width: #{$large})";
+$large-down: "only screen and (max-width: #{$large})";
