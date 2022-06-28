@@ -6,7 +6,7 @@ import {
   Tooltip,
  } from "recharts";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import {getAverageSessions} from '../../utils/api';
 import { useParams } from 'react-router-dom';
 
 
@@ -20,28 +20,13 @@ const [averageSessions,setAverageSessions]= useState([]);
 /* A function that is called when the component is mounted. It is an asynchronous function that makes
 an API call to the server and then sets the state of the component with the data returned by the API
 call. */
-
-const getData = async () => {
-  const arrayDay =["L", "M", "M", "J", "V", "S","D"];
-  const { data } = await axios.get(`http://localhost:3000/user/`+ id +` /average-sessions`);
-const averageSessionsArray = data.data.sessions.map(averageSession=> { 
-  return{
-    name: arrayDay[averageSession.day -1],
-    pv: averageSession.sessionLength,
-  }
- 
-})
-setAverageSessions(averageSessionsArray)
-console.log(averageSessionsArray)
-}
- 
 /* A hook that is called when the component is mounted. It is an asynchronous function that makes
 an API call to the server and then sets the state of the component with the data returned by the API
-
 call. */
 useEffect(() => {
-  getData();
-});
+  getAverageSessions(id, setAverageSessions);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   return (<div className="containerAverageSession">
   <div className="containerTitleGraphRed">Durée moyenne des sessions</div>
