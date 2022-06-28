@@ -10,6 +10,19 @@ export const getAverageSessions = async (id, setStateData) => {
     }
      })
   setStateData(averageSessionsArray)
-  
-  }
+    }
 
+
+ export  const getDailyActivity = async (id, setDailyActivity) => {
+        const { data } = await axios.get(`http://localhost:3000/user/`+ id +`/activity`);
+      
+        const activitiesArray = data.data.sessions.map(activity=> { 
+            return{
+               name: activity.day,
+               kilogram: activity.kilogram,
+               calories: activity.calories
+            }
+           
+          })
+          setDailyActivity(activitiesArray)
+          }

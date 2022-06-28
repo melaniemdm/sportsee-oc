@@ -9,8 +9,9 @@ import {
   Legend
 } from "recharts";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import {getDailyActivity} from '../../utils/api';
 import { useParams } from 'react-router-dom';
+
 const getBarShape = (x, y, width, height, radius) => {
   const [tl, tr, bl, br] = radius;
   const d = `M${x},${y + tl}
@@ -47,33 +48,23 @@ const getBarShape = (x, y, width, height, radius) => {
  *     const getData = async () =&gt; {
  *       const { data } = await axios.get(`http://localhost:3000/user/` + id + `/activity`);
  * @returns The data from the API is being returned.
- */
+ */  
+
 export default function DailyActivity() {
-  const [activities, setActivities] = useState([]);
+  const [activities, setDailyActivity] = useState([]);
   const {id} = useParams();
 /**
  * It takes the data from the API and maps it into an array of objects.
  */
-  const getData = async () => {
-    const { data } = await axios.get(`http://localhost:3000/user/`+ id +`/activity`);
 
-const activitiesArray = data.data.sessions.map(activity=> { 
-    return{
-       name: activity.day,
-       kilogram: activity.kilogram,
-       calories: activity.calories
-    }
-   
-  })
-  setActivities(activitiesArray)
-  }
  
  /* A hook that is used for performing side effects in function components. It serves the same purpose
  as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes, but unified
  into a single API. */
   useEffect(() => {
-    getData();
-  });
+    getDailyActivity(id, setDailyActivity);
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (<div className="containerDailyActivity"> 
   <div className="containerTitleDailyActivity">
