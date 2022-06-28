@@ -5,12 +5,9 @@ import AverageSession from "../../components/AverageSession";
 import Score from "../../components/Score";
 import Intensity from "../../components/Intensity";
 import BodyMassIndex from "../../components/BodyMassIndex";
-import fire from "../../assets/fire.png";
-import prot from "../../assets/prot.png";
-import apple from "../../assets/apple.png";
-import lipides from "../../assets/lipides.png";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import {getFirstName} from '../../utils/api';
+import {getBMI} from '../../utils/api';
 import { useParams } from "react-router-dom";
 
 /**
@@ -21,44 +18,15 @@ import { useParams } from "react-router-dom";
  */
 function Profil() {
   const { id } = useParams();
-  const [name, setName] = useState([]);
-  const [bodyMassIndex, setBodyMassIndex] = useState([]);
-  /**
-   * I'm using axios to get data from my backend, then I'm setting the state of my component with the
-   * data I got from my backend.
-   */
-  const getData = async () => {
-    const { data } = await axios.get(`http://localhost:3000/user/` + id);
-    setName(data.data.userInfos.firstName);
-    const keyData = data.data.keyData;
-
-    let bmiArray = [];
-    bmiArray.push({
-      value: keyData.calorieCount,
-      type: "Calories",
-      picture: fire,
-    });
-    bmiArray.push({
-      value: keyData.proteinCount,
-      type: "Protéines",
-      picture: prot,
-    });
-    bmiArray.push({
-      value: keyData.carbohydrateCount,
-      type: "Glucides",
-      picture: apple,
-    });
-    bmiArray.push({
-      value: keyData.lipidCount,
-      type: "Lipides",
-      picture: lipides,
-    });
-    setBodyMassIndex(bmiArray);
-  };
+  const [name, setFirstName] = useState([]);
+  const [bodyMassIndex, setBMI] = useState([]);
+  
   /* It's a hook that is called when the component is mounted. */
   useEffect(() => {
-    getData();
-  });
+    getFirstName(id, setFirstName);
+    getBMI(id, setBMI); 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
 
   return (
     <div className="containerProfil">

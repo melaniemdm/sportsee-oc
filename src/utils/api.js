@@ -1,4 +1,8 @@
 import axios from "axios";
+import fire from "../assets/fire.png";
+import prot from "../assets/prot.png";
+import apple from "../assets/apple.png";
+import lipides from "../assets/lipides.png";
 
 export const getAverageSessions = async (id, setStateData) => {
     const arrayDay =["L", "M", "M", "J", "V", "S","D"];
@@ -51,3 +55,37 @@ export const getAverageSessions = async (id, setStateData) => {
           setScore(dataScore)
           
             }
+
+           export const getFirstName = async (id, setFirstName) => {
+              const { data } = await axios.get(`http://localhost:3000/user/` + id);
+              setFirstName(data.data.userInfos.firstName);
+                };
+
+              export  const getBMI = async (id, setBMI) => {
+                  const { data } = await axios.get(`http://localhost:3000/user/` + id);
+                 
+                  const keyData = data.data.keyData;
+              
+                  let bmiArray = [];
+                  bmiArray.push({
+                    value: keyData.calorieCount,
+                    type: "Calories",
+                    picture: fire,
+                  });
+                  bmiArray.push({
+                    value: keyData.proteinCount,
+                    type: "Protéines",
+                    picture: prot,
+                  });
+                  bmiArray.push({
+                    value: keyData.carbohydrateCount,
+                    type: "Glucides",
+                    picture: apple,
+                  });
+                  bmiArray.push({
+                    value: keyData.lipidCount,
+                    type: "Lipides",
+                    picture: lipides,
+                  });
+                  setBMI(bmiArray);
+                };

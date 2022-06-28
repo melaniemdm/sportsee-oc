@@ -36,7 +36,7 @@ iconeNavBarLeft.push({
 setIconeNavBarLeft(iconeNavBarLeft);}
 useEffect(() => {
   getData();
-});
+}, []);
   return (<div className="containerNavBarLeft ">
   
 <div className="containerCard">
