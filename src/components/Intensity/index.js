@@ -45,6 +45,7 @@ const {id} = useParams();
 /* A hook that is called when the component is mounted. */
 useEffect(() => {
   getPerformance(id, setPerformance);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 },[]);
 
   return (
