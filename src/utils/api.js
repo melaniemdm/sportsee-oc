@@ -39,3 +39,15 @@ export const getAverageSessions = async (id, setStateData) => {
           })
           setPerformance(performancesArray)
           }         
+
+          export const getDataScore = async (id, setScore) => {
+            const { data } = await axios.get(`http://localhost:3000/user/` + id);
+          const scoreUser = data.data.todayScore ? data.data.todayScore : data.data.score;
+          const dataScore = [
+            { name: "Group A", value: scoreUser,"fill": "red" },
+            { name: "Group B", value: 1 - scoreUser,"fill": "red" },
+           
+          ];
+          setScore(dataScore)
+          
+            }
