@@ -26,3 +26,16 @@ export const getAverageSessions = async (id, setStateData) => {
           })
           setDailyActivity(activitiesArray)
           }
+
+        export   const getPerformance=async(id, setPerformance)=>{
+            const {data}=await axios.get('http://localhost:3000/user/'+id+'/performance')
+          
+          const performancesArray = data.data.data.map(performance=> { 
+            return{
+              subject: data.data.kind[performance.kind],
+              A: performance.value,
+              fullMark: 150
+            }
+          })
+          setPerformance(performancesArray)
+          }         
