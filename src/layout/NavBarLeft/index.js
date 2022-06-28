@@ -35,6 +35,7 @@ iconeNavBarLeft.push({
 });
 setIconeNavBarLeft(iconeNavBarLeft);}
 useEffect(() => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   getData();
 }, []);
   return (<div className="containerNavBarLeft ">

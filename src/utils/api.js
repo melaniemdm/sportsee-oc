@@ -9,7 +9,7 @@ export const getAverageSessions = async (id, setStateData) => {
     const { data } = await axios.get(`http://localhost:3000/user/`+ id +` /average-sessions`);
   const averageSessionsArray = data.data.sessions.map(averageSession=> { 
     return{
-      name: arrayDay[averageSession.day -1],
+      name: arrayDay[parseInt(averageSession.day) -1],
       pv: averageSession.sessionLength,
     }
      })
